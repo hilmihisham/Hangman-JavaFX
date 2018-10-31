@@ -85,6 +85,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hangman/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
               <caret line="73" column="70" lean-forward="true" selection-start-line="73" selection-start-column="70" selection-end-line="73" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
