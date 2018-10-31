@@ -69,10 +69,10 @@ public class GameController {
 	private void setUpStatusLabelBindings() {
 
 		System.out.println("in setUpStatusLabelBindings");
-		targetLabel.textProperty().bind(Bindings.format("%s","Target: "));
-        missedLabel.textProperty().bind(Bindings.format("%s","Missed Letters: "));
+		targetLabel.textProperty().bind(Bindings.format("%s",game.getTarget()));
+        missedLabel.textProperty().bind(Bindings.format("%s",game.getMissed()));
 		statusLabel.textProperty().bind(Bindings.format("%s", game.gameStatusProperty()));
-        movesLabel.textProperty().bind(Bindings.format("%s","You have 5 moves left: "));
+        movesLabel.textProperty().bind(Bindings.format("%s",game.getMovesLeft()));
 		enterALetterLabel.textProperty().bind(Bindings.format("%s", "Enter a letter:"));
 		/*	Bindings.when(
 					game.currentPlayerProperty().isNotNull()

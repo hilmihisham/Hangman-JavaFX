@@ -5,6 +5,8 @@ import javafx.beans.binding.ObjectBinding;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
@@ -19,8 +21,13 @@ public class Game {
 	private String[] words;
 	private int moves;
 	private int index;
+	private boolean newGame;
+	private String lastLetter;
 	private final ReadOnlyObjectWrapper<GameStatus> gameStatus;
 	private ObjectProperty<Boolean> gameState = new ReadOnlyObjectWrapper<Boolean>();
+	private StringProperty missed = new SimpleStringProperty();
+	private StringProperty target = new SimpleStringProperty();
+	private StringProperty movesLeft = new SimpleStringProperty();
 
 	public enum GameStatus {
 		GAME_OVER {
@@ -66,13 +73,8 @@ public class Game {
 			}
 
 		});
-		setRandomWord();
-		prepTmpAnswer();
-		prepLetterAndPosArray();
-		moves = 0;
 
-		gameState.setValue(false); // initial state
-		createGameStatusBinding();
+		reset();
 	}
 
 	private void createGameStatusBinding() {
@@ -89,8 +91,10 @@ public class Game {
 					return check;
 				}
 
-				if(tmpAnswer.trim().length() == 0){
+				//if(tmpAnswer.trim().length() == 0){
+                if(newGame){
 					log("new game");
+					newGame = false;
 					return GameStatus.OPEN;
 				}
 				else if (index != -1){
@@ -100,6 +104,8 @@ public class Game {
 				else {
 					moves++;
 					log("bad guess");
+                    missed.set(missed.get() + lastLetter);
+                    movesLeft.set("You have " + (numOfTries()-moves) + " bad guesses left.");
 					return GameStatus.BAD_GUESS;
 					//printHangman();
 				}
@@ -114,6 +120,18 @@ public class Game {
 	public GameStatus getGameStatus() {
 		return gameStatus.get();
 	}
+
+	public StringProperty getMissed(){
+	    return missed;
+    }
+
+    public StringProperty getTarget(){
+	    return target;
+    }
+
+    public StringProperty getMovesLeft(){
+	    return movesLeft;
+    }
 
 	private void setRandomWord() {
 		//int idx = (int) (Math.random() * words.length);
@@ -153,7 +171,12 @@ public class Game {
 			StringBuilder sb = new StringBuilder(tmpAnswer);
 			sb.setCharAt(index, input.charAt(0));
 			tmpAnswer = sb.toString();
-		}
+
+			sb = new StringBuilder(target.get());
+			int idx = 8 + (index * 2);
+			sb.setCharAt(idx, input.charAt(0));
+			target.set(sb.toString());
+    }
 		return index;
 	}
 
@@ -162,11 +185,30 @@ public class Game {
 	public void makeMove(String letter) {
 		log("\nin makeMove: " + letter);
 		index = update(letter);
+		lastLetter = letter;
 		// this will toggle the state of the game
 		gameState.setValue(!gameState.getValue());
 	}
 
-	public void reset() {}
+	public void reset() {
+        setRandomWord();
+        prepTmpAnswer();
+        prepLetterAndPosArray();
+        missed.set("Missed Letters: ");
+        prepTargetField();
+        movesLeft.set("You have " + numOfTries() + " bad guesses left.");
+        moves = 0;
+        newGame = true;
+        gameState.setValue(false); // initial state
+        createGameStatusBinding();
+    }
+
+    private void prepTargetField(){
+        target.set("Target: ");
+        for(int i=0; i<answer.length(); ++i){
+            target.set(target.get() + "_ ");
+        }
+    }
 
 	private int numOfTries() {
 		return 5; // TODO, fix me
@@ -184,6 +226,9 @@ public class Game {
 		}
 		else if(moves == numOfTries()) {
 			log("game over");
+			if(!target.get().contains("Answer: ")) {
+                target.set(target.get() + "  Answer: " + answer);
+            }
 			return GameStatus.GAME_OVER;
 		}
 		else {
