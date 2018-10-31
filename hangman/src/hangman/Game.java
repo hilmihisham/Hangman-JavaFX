@@ -18,7 +18,8 @@ public class Game {
 	private String answer;
 	private String tmpAnswer;
 	private String[] letterAndPosArray;
-	private String[] words;
+	private String[] words = {"apple", "pineapple", "christmas", "hangman", "batman", "intellij"};
+	private String hint = "";
 	private int moves;
 	private int index;
 	private boolean newGame;
@@ -134,8 +135,8 @@ public class Game {
     }
 
 	private void setRandomWord() {
-		//int idx = (int) (Math.random() * words.length);
-		answer = "apple";//words[idx].trim(); // remove new line character
+		int idx = (int) (Math.random() * words.length);
+		answer = words[idx].trim(); // remove new line character
 	}
 
 	private void prepTmpAnswer() {
@@ -211,7 +212,7 @@ public class Game {
     }
 
 	private int numOfTries() {
-		return 5; // TODO, fix me
+		return answer.length()+1; // the length of the answer plus one free letter for a mistake
 	}
 
 	public static void log(String s) {
@@ -234,5 +235,31 @@ public class Game {
 		else {
 			return null;
 		}
+	}
+
+	public void setHint()
+	{
+		switch (answer)
+		{
+			case "apple":
+				hint = "Found by Steve Jobs!";
+				break;
+			case "Pineapple":
+				hint = "Fruit that goes with pizza!";
+				break;
+			case "christmas":
+				hint = "A religious holiday!";
+				break;
+			case "hangman":
+				hint = "What are you playing!";
+				break;
+			case "batman":
+				hint = "Night super hero!";
+				break;
+			case "intellij":
+				hint = "The Professor's favorite IDE!";
+				break;
+		}
+		System.out.println(hint);
 	}
 }

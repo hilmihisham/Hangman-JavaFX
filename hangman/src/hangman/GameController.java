@@ -107,6 +107,12 @@ public class GameController {
 	}
 
 	@FXML
+	private void hint()
+	{
+		game.setHint();
+	}
+
+	@FXML
 	private void quit() {
 		board.getScene().getWindow().hide();
 	}
