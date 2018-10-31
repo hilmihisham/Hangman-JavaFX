@@ -34,7 +34,13 @@ public class GameController {
 	@FXML
 	private VBox board ;
 	@FXML
+	private Label targetLabel;
+	@FXML
+    private Label missedLabel;
+	@FXML
 	private Label statusLabel ;
+	@FXML
+    private Label movesLabel;
 	@FXML
 	private Label enterALetterLabel ;
 	@FXML
@@ -63,7 +69,10 @@ public class GameController {
 	private void setUpStatusLabelBindings() {
 
 		System.out.println("in setUpStatusLabelBindings");
+		targetLabel.textProperty().bind(Bindings.format("%s","Target: "));
+        missedLabel.textProperty().bind(Bindings.format("%s","Missed Letters: "));
 		statusLabel.textProperty().bind(Bindings.format("%s", game.gameStatusProperty()));
+        movesLabel.textProperty().bind(Bindings.format("%s","You have 5 moves left: "));
 		enterALetterLabel.textProperty().bind(Bindings.format("%s", "Enter a letter:"));
 		/*	Bindings.when(
 					game.currentPlayerProperty().isNotNull()

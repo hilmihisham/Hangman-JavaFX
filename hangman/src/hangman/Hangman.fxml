@@ -30,22 +30,47 @@
 	</center>
 	
 	<bottom>
-		<VBox>
-			<Label fx:id="statusLabel">
-				<styleClass>
-					<String fx:value="status"/>
-				</styleClass>
-			</Label>
-			<GridPane>
-				<Label fx:id="enterALetterLabel" GridPane.columnIndex="0">
-					<styleClass>
-						<String fx:value="status"/>
-					</styleClass>
-				</Label>
-				<TextField fx:id="textField" GridPane.columnIndex="1">
-				</TextField>
-			</GridPane>
-		</VBox>
+        <VBox>
+            <VBox>
+                <styleClass>
+                    <String fx:value="bluebg"/>
+                </styleClass>
+                <Label fx:id="targetLabel">
+                    <styleClass>
+                        <String fx:value="status"/>
+                    </styleClass>
+                </Label>
+                <Label fx:id="missedLabel">
+                    <styleClass>
+                        <String fx:value="status"/>
+                    </styleClass>
+                </Label>
+            </VBox>
+            <VBox>
+                <styleClass>
+                    <String fx:value="greenbg"/>
+                </styleClass>
+                <Label fx:id="statusLabel">
+                    <styleClass>
+                        <String fx:value="status"/>
+                    </styleClass>
+                </Label>
+                <Label fx:id="movesLabel">
+                    <styleClass>
+                        <String fx:value="status"/>
+                    </styleClass>
+                </Label>
+                <GridPane>
+                    <Label fx:id="enterALetterLabel" GridPane.columnIndex="0">
+                        <styleClass>
+                            <String fx:value="status"/>
+                        </styleClass>
+                    </Label>
+                    <TextField fx:id="textField" GridPane.columnIndex="1">
+                    </TextField>
+                </GridPane>
+            </VBox>
+        </VBox>
 	</bottom>
 
 </BorderPane>
