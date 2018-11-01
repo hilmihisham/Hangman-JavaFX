@@ -18,7 +18,8 @@ public class Game {
 	private String answer;
 	private String tmpAnswer;
 	private String[] letterAndPosArray;
-	private String[] words = {"apple", "pineapple", "christmas", "hangman", "batman", "intellij"};
+	private String[] words = {"apple", "pineapple", "christmas", "hangman", "batman", "intellij", "hydrogen",
+			"connecticut"};
 	private String hint = "";
 	private int moves;
 	private int index;
@@ -212,7 +213,7 @@ public class Game {
     }
 
 	private int numOfTries() {
-		return answer.length()+1; // the length of the answer plus one free letter for a mistake
+		return 6; // the length of the answer plus one free letter for a mistake
 	}
 
 	public static void log(String s) {
@@ -258,6 +259,12 @@ public class Game {
 				break;
 			case "intellij":
 				hint = "The Professor's favorite IDE!";
+				break;
+			case "hydrogen":
+				hint = "The first element of the periodic table!";
+				break;
+			case "connecticut":
+				hint = "The fifth state of the United States!";
 				break;
 		}
 		System.out.println(hint);
