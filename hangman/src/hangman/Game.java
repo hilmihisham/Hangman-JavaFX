@@ -108,6 +108,10 @@ public class Game {
 					log("bad guess");
                     missed.set(missed.get() + lastLetter);
                     movesLeft.set("You have " + (numOfTries()-moves) + " bad guesses left.");
+					check = checkForWinner(index);
+					if(check != null ) {
+						return check;
+					}
 					return GameStatus.BAD_GUESS;
 					//printHangman();
 				}
@@ -187,6 +191,8 @@ public class Game {
 	public void makeMove(String letter) {
 		log("\nin makeMove: " + letter);
 		index = update(letter);
+		int temp;
+		while((temp = update(letter)) != -1);
 		lastLetter = letter;
 		// this will toggle the state of the game
 		gameState.setValue(!gameState.getValue());
