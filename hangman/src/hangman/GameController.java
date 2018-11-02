@@ -85,19 +85,61 @@ public class GameController {
 		*/
 	}
 
+	private static final int SPINE_START_X = 100;
+	private static final int SPINE_START_Y = 20;
+	private static final int SPINE_END_X = SPINE_START_X;
+	private static final int SPINE_END_Y = SPINE_START_Y + 50;
+
 	private void drawHangman() {
 
-		Line line = new Line();
-		line.setStartX(25.0f);
-		line.setStartY(0.0f);
-		line.setEndX(25.0f);
-		line.setEndY(25.0f);
+		Circle head = new Circle(15);
+		head.setTranslateX(SPINE_START_X - 100);
+		head.setTranslateY(SPINE_START_Y - 90);
 
-		Circle c = new Circle();
-		c.setRadius(10);
+		Line spine = new Line();
+		spine.setStartX(SPINE_START_X);
+		spine.setStartY(SPINE_START_Y);
+		spine.setEndX(SPINE_END_X);
+		spine.setEndY(SPINE_END_Y);
 
-		board.getChildren().add(line);
-		board.getChildren().add(c);
+		Line leftArm = new Line();
+		leftArm.setStartX(SPINE_START_X);
+		leftArm.setStartY(SPINE_START_Y);
+		leftArm.setEndX(SPINE_START_X + 40);
+		leftArm.setEndY(SPINE_START_Y + 10);
+		leftArm.setTranslateX(SPINE_START_X - 120);
+		leftArm.setTranslateY(SPINE_START_Y - 90);
+
+		Line rightArm = new Line();
+		rightArm.setStartX(SPINE_START_X);
+		rightArm.setStartY(SPINE_START_Y);
+		rightArm.setEndX(SPINE_START_X - 40);
+		rightArm.setEndY(SPINE_START_Y + 10);
+        rightArm.setTranslateX(SPINE_START_X - 80);
+        rightArm.setTranslateY(SPINE_START_Y - 101);
+
+		Line leftLeg = new Line();
+		leftLeg.setStartX(SPINE_END_X);
+		leftLeg.setStartY(SPINE_END_Y);
+		leftLeg.setEndX(SPINE_END_X + 25);
+		leftLeg.setEndY(SPINE_END_Y + 50);
+        leftLeg.setTranslateX(SPINE_START_X - 87);
+        leftLeg.setTranslateY(SPINE_START_Y - 75);
+
+		Line rightLeg = new Line();
+		rightLeg.setStartX(SPINE_END_X);
+		rightLeg.setStartY(SPINE_END_Y);
+		rightLeg.setEndX(SPINE_END_X - 25);
+		rightLeg.setEndY(SPINE_END_Y + 50);
+        rightLeg.setTranslateX(SPINE_START_X - 112);
+        rightLeg.setTranslateY(SPINE_START_Y - 128);
+
+        board.getChildren().add(spine);
+        board.getChildren().add(head);
+        board.getChildren().add(leftArm);
+        board.getChildren().add(rightArm);
+        board.getChildren().add(leftLeg);
+        board.getChildren().add(rightLeg);
 
 	}
 		
