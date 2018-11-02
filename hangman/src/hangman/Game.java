@@ -10,16 +10,18 @@ import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Game {
 
 	private String answer;
 	private String tmpAnswer;
 	private String[] letterAndPosArray;
-	private String[] words = {"apple", "pineapple", "christmas", "hangman", "batman", "intellij", "hydrogen",
-			"connecticut"};
+	private String[] words;
 	private String hint = "";
 	private int moves;
 	private int index;
@@ -139,7 +141,41 @@ public class Game {
 	    return movesLeft;
     }
 
+
+	private String [] createWordBank ()
+	{
+		int ctr =0;
+		String[] wordsReadFromFile;
+
+		try
+		{
+			Scanner scanner = new Scanner(new File("words.txt"));
+			while (scanner.hasNext())
+			{
+				ctr++;
+				scanner.next();
+			}
+			wordsReadFromFile= new String[ctr];
+
+			Scanner sc = new Scanner(new File("words.txt"));
+			for (int i = 0; i <= ctr; i++)
+			{
+				if(sc.hasNext())
+				{
+					wordsReadFromFile[i] = sc.next();
+				}
+			}
+			return  wordsReadFromFile;
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+
+	}
 	private void setRandomWord() {
+		words=createWordBank();
 		int idx = (int) (Math.random() * words.length);
 		answer = words[idx].trim(); // remove new line character
 	}
@@ -246,33 +282,36 @@ public class Game {
 
 	public void setHint()
 	{
-		switch (answer)
-		{
-			case "apple":
-				hint = "Found by Steve Jobs!";
-				break;
-			case "Pineapple":
-				hint = "Fruit that goes with pizza!";
-				break;
-			case "christmas":
-				hint = "A religious holiday!";
-				break;
-			case "hangman":
-				hint = "What are you playing!";
-				break;
-			case "batman":
-				hint = "Night super hero!";
-				break;
-			case "intellij":
-				hint = "The Professor's favorite IDE!";
-				break;
-			case "hydrogen":
-				hint = "The first element of the periodic table!";
-				break;
-			case "connecticut":
-				hint = "The fifth state of the United States!";
-				break;
-		}
+		hint = "we will give you a free letter :)\n"
+				+"one of the letters in this word is: "
+				+answer.charAt(0);
+//		switch (answer)
+//		{
+//			case "apple":
+//				hint = "Found by Steve Jobs!";
+//				break;
+//			case "Pineapple":
+//				hint = "Fruit that goes with pizza!";
+//				break;
+//			case "christmas":
+//				hint = "A religious holiday!";
+//				break;
+//			case "hangman":
+//				hint = "What are you playing!";
+//				break;
+//			case "batman":
+//				hint = "Night super hero!";
+//				break;
+//			case "intellij":
+//				hint = "The Professor's favorite IDE!";
+//				break;
+//			case "hydrogen":
+//				hint = "The first element of the periodic table!";
+//				break;
+//			case "connecticut":
+//				hint = "The fifth state of the United States!";
+//				break;
+//		}
 		System.out.println(hint);
 	}
 }
