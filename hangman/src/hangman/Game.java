@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
@@ -255,7 +256,7 @@ public class Game {
     }
 
 	private int numOfTries() {
-		return 6; // the length of the answer plus one free letter for a mistake
+		return 7; // the length of the answer plus one free letter for a mistake
 	}
 
 	public static void log(String s) {
@@ -282,36 +283,20 @@ public class Game {
 
 	public void setHint()
 	{
+		String hintLetter="";
+		for(int i = 0; i < answer.length(); i++)
+		{
+			hintLetter=String.valueOf(answer.charAt(i));
+			if(!tmpAnswer.contains(hintLetter))
+			{
+				break;
+			}
+
+		}
 		hint = "we will give you a free letter :)\n"
 				+"one of the letters in this word is: "
-				+answer.charAt(0);
-//		switch (answer)
-//		{
-//			case "apple":
-//				hint = "Found by Steve Jobs!";
-//				break;
-//			case "Pineapple":
-//				hint = "Fruit that goes with pizza!";
-//				break;
-//			case "christmas":
-//				hint = "A religious holiday!";
-//				break;
-//			case "hangman":
-//				hint = "What are you playing!";
-//				break;
-//			case "batman":
-//				hint = "Night super hero!";
-//				break;
-//			case "intellij":
-//				hint = "The Professor's favorite IDE!";
-//				break;
-//			case "hydrogen":
-//				hint = "The first element of the periodic table!";
-//				break;
-//			case "connecticut":
-//				hint = "The fifth state of the United States!";
-//				break;
-//		}
+				+hintLetter;
+
 		System.out.println(hint);
 	}
 }
