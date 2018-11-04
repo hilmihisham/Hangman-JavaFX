@@ -1,5 +1,6 @@
 package hangman;
 
+import java.awt.BasicStroke;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -134,13 +135,23 @@ public class GameController {
         rightLeg.setTranslateX(SPINE_START_X - 112);
         rightLeg.setTranslateY(SPINE_START_Y - 128);
 
-        board.getChildren().add(spine);
+        Line frameBase = new Line();
+        frameBase.setStartX(0);
+        frameBase.setEndX(150);
+        frameBase.setStartY(0);
+        frameBase.setEndY(0);
+		frameBase.setTranslateX(-160);
+		frameBase.setTranslateY(80);
+		frameBase.setStrokeWidth(5);
+
+
+		board.getChildren().add(spine);
         board.getChildren().add(head);
         board.getChildren().add(leftArm);
         board.getChildren().add(rightArm);
         board.getChildren().add(leftLeg);
         board.getChildren().add(rightLeg);
-
+        board.getChildren().add(frameBase);
 	}
 		
 	@FXML 

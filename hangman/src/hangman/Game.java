@@ -223,7 +223,10 @@ public class Game {
 		return index;
 	}
 
-	private static void drawHangmanFrame() {}
+	private static void drawHangmanFrame()
+	{
+
+	}
 
 	public void makeMove(String letter) {
 		log("\nin makeMove: " + letter);
