@@ -21,11 +21,13 @@ public class Game {
 
 	private String answer;
 	private String tmpAnswer;
+	private String missedLetters;
 	private String[] letterAndPosArray;
 	private String[] words;
 	private String hint = "";
 	private int moves;
 	private int index;
+	private boolean gameOver;
 	private boolean newGame;
 	private String lastLetter;
 	private final ReadOnlyObjectWrapper<GameStatus> gameStatus;
@@ -79,6 +81,7 @@ public class Game {
 
 		});
 
+		words=createWordBank();
 		reset();
 	}
 
@@ -109,7 +112,8 @@ public class Game {
 				else {
 					moves++;
 					log("bad guess");
-                    missed.set(missed.get() + lastLetter);
+					missedLetters += lastLetter;
+                    missed.set("Missed Letters: " + missedLetters);
                     movesLeft.set("You have " + (numOfTries()-moves) + " bad guesses left.");
 					check = checkForWinner(index);
 					if(check != null ) {
@@ -176,7 +180,6 @@ public class Game {
 
 	}
 	private void setRandomWord() {
-		words=createWordBank();
 		int idx = (int) (Math.random() * words.length);
 		answer = words[idx].trim(); // remove new line character
 	}
@@ -230,6 +233,13 @@ public class Game {
 
 	public void makeMove(String letter) {
 		log("\nin makeMove: " + letter);
+		if(gameOver)
+		    return;
+		letter = letter.toLowerCase();
+		if(!letter.matches("[A-Za-z]"))
+		    return;
+		if(tmpAnswer.contains(letter) || missedLetters.contains(letter))
+		    return;
 		index = update(letter);
 		int temp;
 		while((temp = update(letter)) != -1);
@@ -243,10 +253,12 @@ public class Game {
         prepTmpAnswer();
         prepLetterAndPosArray();
         missed.set("Missed Letters: ");
+        missedLetters = "";
         prepTargetField();
         movesLeft.set("You have " + numOfTries() + " bad guesses left.");
         moves = 0;
         newGame = true;
+        gameOver = false;
         gameState.setValue(false); // initial state
         createGameStatusBinding();
     }
@@ -270,13 +282,13 @@ public class Game {
 		log("in checkForWinner");
 		if(tmpAnswer.equals(answer)) {
 			log("won");
+			gameOver = true;
 			return GameStatus.WON;
 		}
 		else if(moves == numOfTries()) {
 			log("game over");
-			if(!target.get().contains("Answer: ")) {
-                target.set(target.get() + "  Answer: " + answer);
-            }
+            target.set(target.get() + "  Answer: " + answer);
+            gameOver = true;
 			return GameStatus.GAME_OVER;
 		}
 		else {
