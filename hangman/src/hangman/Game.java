@@ -244,6 +244,7 @@ public class Game {
 		    return;
 		if(tmpAnswer.contains(letter) || missedLetters.contains(letter))
 		    return;
+		Hint.set("");
 		index = update(letter);
 		int temp;
 		while((temp = update(letter)) != -1);
@@ -256,7 +257,8 @@ public class Game {
         setRandomWord();
         prepTmpAnswer();
         prepLetterAndPosArray();
-        Hint.set("Hint: ");
+        //Hint.set("Hint: ");
+        Hint.set("");
         missed.set("Missed Letters: ");
         missedLetters = "";
         prepTargetField();
@@ -304,28 +306,27 @@ public class Game {
 
 	public void setHint()
 	{
-		moves++;
-		if(moves<=numOfTries())
-		{
-			String hintLetter = "";
-			for (int i = 0; i < answer.length(); i++) {
-				hintLetter = String.valueOf(answer.charAt(i));
-				if (!tmpAnswer.contains(hintLetter)) {
-					break;
-				}
-			}
+	    if(gameOver)
+	        return;
 
-			if (moves == numOfTries())
-			{
-				movesLeft.set("You have " + (numOfTries() - moves + " bad guesses left."));
-				Hint.set("Hint: " + hintLetter);
-				checkForWinner(index);
-			}
-			else if (moves < numOfTries()) {
-				movesLeft.set("You have " + (numOfTries() - moves + " bad guesses left."));
-				Hint.set("Hint: " + hintLetter);
-			}
+		if((numOfTries()-moves)==1) {
+		    Hint.set("No More Hints!");
+            return;
+        }
 
-		}
+        String hintLetter = "";
+        for (int i = 0; i < answer.length(); i++) {
+            hintLetter = String.valueOf(answer.charAt(i));
+            if (!tmpAnswer.contains(hintLetter)) {
+                break;
+            }
+        }
+
+        if(Hint.get().length()==7 && Hint.get().charAt(6)==hintLetter.charAt(0))
+            return;
+
+        moves++;
+        movesLeft.set("You have " + (numOfTries() - moves + " bad guesses left."));
+        Hint.set("Hint: " + hintLetter);
 	}
 }
