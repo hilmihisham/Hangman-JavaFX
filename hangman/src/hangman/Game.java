@@ -27,12 +27,14 @@ public class Game {
 	private String hint = "";
 	private int moves;
 	private int index;
+	private int tries = 7;
 	private boolean gameOver;
 	private boolean newGame;
 	private String lastLetter;
 	private final ReadOnlyObjectWrapper<GameStatus> gameStatus;
 	private ObjectProperty<Boolean> gameState = new ReadOnlyObjectWrapper<Boolean>();
 	private StringProperty missed = new SimpleStringProperty();
+	private StringProperty Hint = new SimpleStringProperty();
 	private StringProperty target = new SimpleStringProperty();
 	private StringProperty movesLeft = new SimpleStringProperty();
 
@@ -146,6 +148,8 @@ public class Game {
 	    return movesLeft;
     }
 
+    public StringProperty getHint(){return Hint;}
+
 
 	private String [] createWordBank ()
 	{
@@ -252,6 +256,7 @@ public class Game {
         setRandomWord();
         prepTmpAnswer();
         prepLetterAndPosArray();
+        Hint.set("Hint: ");
         missed.set("Missed Letters: ");
         missedLetters = "";
         prepTargetField();
@@ -271,7 +276,8 @@ public class Game {
     }
 
 	private int numOfTries() {
-		return 7; // the length of the answer plus one free letter for a mistake
+
+		return tries; // the length of the answer plus one free letter for a mistake
 	}
 
 	public static void log(String s) {
@@ -298,20 +304,28 @@ public class Game {
 
 	public void setHint()
 	{
-		String hintLetter="";
-		for(int i = 0; i < answer.length(); i++)
+		moves++;
+		if(moves<=numOfTries())
 		{
-			hintLetter=String.valueOf(answer.charAt(i));
-			if(!tmpAnswer.contains(hintLetter))
+			String hintLetter = "";
+			for (int i = 0; i < answer.length(); i++) {
+				hintLetter = String.valueOf(answer.charAt(i));
+				if (!tmpAnswer.contains(hintLetter)) {
+					break;
+				}
+			}
+
+			if (moves == numOfTries())
 			{
-				break;
+				movesLeft.set("You have " + (numOfTries() - moves + " bad guesses left."));
+				Hint.set("Hint: " + hintLetter);
+				checkForWinner(index);
+			}
+			else if (moves < numOfTries()) {
+				movesLeft.set("You have " + (numOfTries() - moves + " bad guesses left."));
+				Hint.set("Hint: " + hintLetter);
 			}
 
 		}
-		hint = "we will give you a free letter :)\n"
-				+"one of the letters in this word is: "
-				+hintLetter;
-
-		System.out.println(hint);
 	}
 }

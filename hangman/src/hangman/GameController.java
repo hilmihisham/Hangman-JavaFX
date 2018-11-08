@@ -45,6 +45,8 @@ public class GameController {
 	@FXML
 	private Label enterALetterLabel ;
 	@FXML
+	private Label Hint;
+	@FXML
 	private TextField textField ;
 
     public void initialize() throws IOException {
@@ -75,6 +77,7 @@ public class GameController {
 		statusLabel.textProperty().bind(Bindings.format("%s", game.gameStatusProperty()));
         movesLabel.textProperty().bind(Bindings.format("%s",game.getMovesLeft()));
 		enterALetterLabel.textProperty().bind(Bindings.format("%s", "Enter a letter:"));
+		Hint.textProperty().bind(Bindings.format("%s", game.getHint()));
 		/*	Bindings.when(
 					game.currentPlayerProperty().isNotNull()
 			).then(

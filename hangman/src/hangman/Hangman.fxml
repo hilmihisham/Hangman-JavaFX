@@ -73,6 +73,11 @@
                     </Label>
                     <TextField fx:id="textField" GridPane.columnIndex="1">
                     </TextField>
+                    <Label fx:id="Hint" GridPane.columnIndex="2">
+                        <styleClass>
+                            <String fx:value="status"/>
+                        </styleClass>
+                    </Label>
                 </GridPane>
             </VBox>
         </VBox>

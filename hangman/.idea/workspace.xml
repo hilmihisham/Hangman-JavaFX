@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5bac875-78f1-4a10-9437-87197b09f132" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/Game$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/Game$GameStatus$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/Game$GameStatus$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/Game$GameStatus$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/Game$GameStatus$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/Game$GameStatus$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/Game$GameStatus$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/Game$GameStatus$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/Game$GameStatus$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/Game$GameStatus$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/Game$GameStatus$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/Game$GameStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/Game$GameStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/GameController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/GameController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/GameController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/Hangman.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/Hangman.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hangman/Hangman.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hangman/Hangman.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hangman/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hangman/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hangman/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hangman/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hangman/Hangman.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/hangman/Hangman.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,24 +93,24 @@
     <session id="-1590442878">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.10" value="4" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="fxml" value="36" />
-          <entry key="java" value="1535" />
+          <entry key="fxml" value="77" />
+          <entry key="java" value="1914" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1535" />
-          <entry key="XML" value="36" />
+          <entry key="JAVA" value="1914" />
+          <entry key="XML" value="77" />
         </counts>
       </usages-collector>
     </session>
@@ -121,11 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="120">
               <caret line="13" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -133,35 +147,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="15">
+              <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="1155">
+              <caret line="77" column="55" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hangman/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="62" column="44" lean-forward="true" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
+            <state relative-caret-position="1290">
+              <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2674#2675#0" expanded="true" />
-                <element signature="e#2693#2694#0" expanded="true" />
-                <element signature="e#2725#2726#0" expanded="true" />
-                <element signature="e#2746#2747#0" expanded="true" />
-                <element signature="e#2777#2778#0" expanded="true" />
-                <element signature="e#2819#2820#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -170,33 +178,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/hangman/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="284" column="28" selection-start-line="284" selection-start-column="28" selection-end-line="284" selection-end-column="28" />
+            <state relative-caret-position="83">
+              <caret line="286" column="51" lean-forward="true" selection-start-line="286" selection-start-column="51" selection-end-line="286" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#973#982#0" expanded="true" />
-                <element signature="e#1312#1313#0" expanded="true" />
-                <element signature="e#1342#1343#0" expanded="true" />
-                <element signature="e#1434#1435#0" expanded="true" />
-                <element signature="e#1465#1466#0" expanded="true" />
-                <element signature="e#1521#1522#0" expanded="true" />
-                <element signature="e#1549#1550#0" expanded="true" />
-                <element signature="e#1606#1607#0" expanded="true" />
-                <element signature="e#1644#1645#0" expanded="true" />
-                <element signature="e#3214#3215#0" expanded="true" />
-                <element signature="e#3260#3261#0" expanded="true" />
-                <element signature="e#3297#3298#0" expanded="true" />
-                <element signature="e#3327#3328#0" expanded="true" />
-                <element signature="e#3364#3365#0" expanded="true" />
-                <element signature="e#3390#3391#0" expanded="true" />
-                <element signature="e#3430#3431#0" expanded="true" />
-                <element signature="e#3456#3457#0" expanded="true" />
-                <element signature="e#3499#3500#0" expanded="true" />
-                <element signature="e#3528#3529#0" expanded="true" />
-                <element signature="e#6263#6264#0" expanded="true" />
-                <element signature="e#6341#6342#0" expanded="true" />
-                <element signature="e#6378#6379#0" expanded="true" />
-                <element signature="e#6406#6407#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -206,28 +191,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gameStatus</find>
-      <find>StringUtils</find>
-      <find>new gam</find>
-      <find>//</find>
-      <find>statuslab</find>
-      <find>statuslabel</find>
-      <find>game on l</find>
-      <find>enter a let</find>
-      <find>comp</find>
-      <find>computevalue</find>
-      <find>makemove</find>
-      <find>numofTr</find>
-      <find>newH</find>
-      <find>gameStat</find>
-      <find>answer</find>
-      <find>numo</find>
-      <find>you w</find>
       <find>WON</find>
       <find>tmpAnswer</find>
       <find>_</find>
-      <find>target</find>
-      <find>index</find>
       <find>draw</find>
       <find>prin</find>
       <find>circle</find>
@@ -236,6 +202,25 @@
       <find>dra</find>
       <find>drawH</find>
       <find>won</find>
+      <find>go</find>
+      <find>Game on</find>
+      <find>ope</find>
+      <find>missed</find>
+      <find>enter</find>
+      <find>enterALetterLabel</find>
+      <find>missedL</find>
+      <find>Answ</find>
+      <find>Answer</find>
+      <find>target</find>
+      <find>numO</find>
+      <find>Bad</find>
+      <find>moves</find>
+      <find>index</find>
+      <find>game</find>
+      <find>GAME_OVER</find>
+      <find>GameStatus</find>
+      <find>checkForWinner</find>
+      <find>good</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -247,8 +232,8 @@
         <option value="$PROJECT_DIR$/.idea/.name" />
         <option value="$PROJECT_DIR$/src/hangman/Hangman.java" />
         <option value="$PROJECT_DIR$/src/hangman/Hangman.css" />
-        <option value="$PROJECT_DIR$/src/hangman/Hangman.fxml" />
         <option value="$PROJECT_DIR$/src/hangman/GameController.java" />
+        <option value="$PROJECT_DIR$/src/hangman/Hangman.fxml" />
         <option value="$PROJECT_DIR$/src/hangman/Game.java" />
       </list>
     </option>
@@ -265,11 +250,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="501" />
-    <option name="y" value="22" />
-    <option name="width" value="975" />
-    <option name="height" value="813" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="812" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -288,14 +272,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541391910581" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541647606216" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -392,16 +377,19 @@
       <workItem from="1541220293806" duration="190000" />
       <workItem from="1541292789313" duration="2850000" />
       <workItem from="1541298407526" duration="3958000" />
+      <workItem from="1541642868145" duration="4206000" />
+      <workItem from="1541648217291" duration="4168000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24410000" />
+    <option name="totallyTimeSpent" value="32784000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="812" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49804688" visible="true" weight="0.16174497" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49804688" visible="true" weight="0.16595136" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -419,7 +407,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50208336" side_tool="true" weight="0.3298872" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32765958" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3263889" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -485,76 +473,44 @@
     <entry file="file://$USER_HOME$/Dropbox/CSUN/COMP585/Class Examples/Java FX Example/src/sample/Main.java" />
     <entry file="file://$USER_HOME$/Dropbox/CSUN/COMP585/Class Examples/Java FX Example/src/sample/sample.fxml" />
     <entry file="file://$USER_HOME$/Dropbox/CSUN/COMP585/Class Examples/Java FX Example/src/sample/Controller.java" />
+    <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="15">
+          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
+          <caret line="77" column="55" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
+        </state>
+      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="62" column="44" lean-forward="true" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
+        <state relative-caret-position="1290">
+          <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2674#2675#0" expanded="true" />
-            <element signature="e#2693#2694#0" expanded="true" />
-            <element signature="e#2725#2726#0" expanded="true" />
-            <element signature="e#2746#2747#0" expanded="true" />
-            <element signature="e#2777#2778#0" expanded="true" />
-            <element signature="e#2819#2820#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="284" column="28" selection-start-line="284" selection-start-column="28" selection-end-line="284" selection-end-column="28" />
+        <state relative-caret-position="83">
+          <caret line="286" column="51" lean-forward="true" selection-start-line="286" selection-start-column="51" selection-end-line="286" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#973#982#0" expanded="true" />
-            <element signature="e#1312#1313#0" expanded="true" />
-            <element signature="e#1342#1343#0" expanded="true" />
-            <element signature="e#1434#1435#0" expanded="true" />
-            <element signature="e#1465#1466#0" expanded="true" />
-            <element signature="e#1521#1522#0" expanded="true" />
-            <element signature="e#1549#1550#0" expanded="true" />
-            <element signature="e#1606#1607#0" expanded="true" />
-            <element signature="e#1644#1645#0" expanded="true" />
-            <element signature="e#3214#3215#0" expanded="true" />
-            <element signature="e#3260#3261#0" expanded="true" />
-            <element signature="e#3297#3298#0" expanded="true" />
-            <element signature="e#3327#3328#0" expanded="true" />
-            <element signature="e#3364#3365#0" expanded="true" />
-            <element signature="e#3390#3391#0" expanded="true" />
-            <element signature="e#3430#3431#0" expanded="true" />
-            <element signature="e#3456#3457#0" expanded="true" />
-            <element signature="e#3499#3500#0" expanded="true" />
-            <element signature="e#3528#3529#0" expanded="true" />
-            <element signature="e#6263#6264#0" expanded="true" />
-            <element signature="e#6341#6342#0" expanded="true" />
-            <element signature="e#6378#6379#0" expanded="true" />
-            <element signature="e#6406#6407#0" expanded="true" />
           </folding>
         </state>
       </provider>
