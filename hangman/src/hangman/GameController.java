@@ -2,6 +2,7 @@ package hangman;
 
 import java.awt.BasicStroke;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
@@ -14,16 +15,41 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Shape;
 
 public class GameController {
 
 	private final ExecutorService executorService;
 	private final Game game;	
-	
+
+    // declaring all the shapes and lines needed for hangman
+    private ArrayList<Shape> gallows, body;
+
+    @FXML
+    private VBox board;
+    @FXML
+    private Label targetLabel;
+    @FXML
+    private Label missedLabel;
+    @FXML
+    private Label statusLabel;
+    @FXML
+    private Label movesLabel;
+    @FXML
+    private Label enterALetterLabel;
+    @FXML
+    private Label Hint;
+    @FXML
+    private TextField textField;
+
 	public GameController(Game game) {
 		this.game = game;
+
+		// initializing Shape lists
+        gallows = new ArrayList<>();
+        body = new ArrayList<>();
+
 		executorService = Executors.newSingleThreadExecutor(new ThreadFactory() {
 			@Override
 			public Thread newThread(Runnable r) {
@@ -33,23 +59,6 @@ public class GameController {
 			}
 		});
 	}
-
-	@FXML
-	private VBox board ;
-	@FXML
-	private Label targetLabel;
-	@FXML
-    private Label missedLabel;
-	@FXML
-	private Label statusLabel ;
-	@FXML
-    private Label movesLabel;
-	@FXML
-	private Label enterALetterLabel ;
-	@FXML
-	private Label Hint;
-	@FXML
-	private TextField textField ;
 
     public void initialize() throws IOException {
 		System.out.println("in initialize");
@@ -65,6 +74,7 @@ public class GameController {
 				if(newValue.length() > 0) {
 					System.out.print(newValue);
 					game.makeMove(newValue);
+					hangmanVisible(game.getMoves());
 					textField.clear();
 				}
 			}
@@ -93,87 +103,149 @@ public class GameController {
 
 	private void drawHangman() {
 
-		Circle head = new Circle(15);
-		head.setTranslateX(0);
-		head.setTranslateY(-100);
+	    // initializing and drawing all lines and shapes needed here
 
-		Line spine = new Line(0,0,75,0);
-		spine.setRotate(90);
-		spine.setTranslateY(-65);
+       // ----- gallow components -----
 
-		Line leftArm = new Line(0,0,50,0);
-		leftArm.setRotate(30);
-		leftArm.setTranslateY(-100);
-		leftArm.setTranslateX(-23);
+        Shape frameBase = new Line(0, 0, 150, 0);
+        frameBase.setTranslateX(-160);
+        frameBase.setTranslateY(240);
+        frameBase.setStrokeWidth(10);
+        frameBase.setVisible(false); // set visibility to false
+        gallows.add(frameBase); // adding to gallows list
 
-		Line rightArm = new Line(0,0,50,0);
-		rightArm.setRotate(-30);
-		rightArm.setTranslateY(-100);
-		rightArm.setTranslateX(23);
+        Shape framePole = new Line(0,0,320,0);
+        framePole.setRotate(90);
+        framePole.setTranslateX(-160);
+        framePole.setTranslateY(70);
+        framePole.setStrokeWidth(10);
+        framePole.setVisible(false);
+        gallows.add(framePole);
 
-		Line leftLeg = new Line(0,0,70,0);
-		leftLeg.setRotate(60);
-		leftLeg.setTranslateY(1);
-		leftLeg.setTranslateX(17);
+        Shape frameLine = new Line(0,0,160,0);
+        frameLine.setTranslateX(-80);
+        frameLine.setTranslateY(-100);
+        frameLine.setStrokeWidth(10);
+        frameLine.setVisible(false);
+        gallows.add(frameLine);
 
-		Line rightLeg = new Line(0,0,70,0);
-		rightLeg.setRotate(-60);
-		rightLeg.setTranslateY(0);
-		rightLeg.setTranslateX(-17);
+        Shape rope = new Line(0,0,60,0);
+        rope.setRotate(90);
+        rope.setTranslateY(-70);
+        rope.setStrokeWidth(6);
+        rope.setStroke(Color.BROWN);
+        rope.setVisible(false);
+        gallows.add(rope);
 
-        Line frameBase = new Line();
-        frameBase.setStartX(0);
-        frameBase.setEndX(150);
-        frameBase.setStartY(0);
-        frameBase.setEndY(0);
-		frameBase.setTranslateX(-160);
-		frameBase.setTranslateY(80);
-		frameBase.setTranslateY(180);
-		frameBase.setStrokeWidth(5);
+        // ----- hangman components -----
 
-		Line framePole = new Line(0,0,350,0);
-		framePole.setStrokeWidth(5);
-		framePole.setRotate(90);
-		framePole.setTranslateY(-100);
-		framePole.setTranslateY(0);
-		framePole.setTranslateX(-160);
+        Shape head = new Circle(25);
+        head.setTranslateX(0);
+        head.setTranslateY(-40);
+        head.setVisible(false);
+        body.add(head);
 
-		Line frameLine = new Line(0,0,160,0);
-		frameLine.setStrokeWidth(5);
-		frameLine.setTranslateY(-280);
-		frameLine.setTranslateY(-180);
-		frameLine.setTranslateX(-80);
+        Shape spine = new Line(0,0,70,0);
+        spine.setRotate(90);
+        spine.setTranslateY(-10);
+        spine.setStrokeWidth(12);
+        spine.setVisible(false);
+        body.add(spine);
 
-		Line rope = new Line(0,0,28,0);
-		rope.setStrokeWidth(3);
-		rope.setRotate(90);
-		rope.setTranslateY(-263);
-		rope.setTranslateY(-167);
-		rope.setStroke(Color.BROWN);
+        Shape leftArm = new Line(0,0,50,0);
+        leftArm.setRotate(-30);
+        leftArm.setTranslateY(-35);
+        leftArm.setTranslateX(-26);
+        leftArm.setStrokeWidth(5);
+        leftArm.setVisible(false);
+        body.add(leftArm);
 
+        Shape rightArm = new Line(0,0,50,0);
+        rightArm.setRotate(30);
+        rightArm.setTranslateY(-40);
+        rightArm.setTranslateX(26);
+        rightArm.setStrokeWidth(5);
+        rightArm.setVisible(false);
+        body.add(rightArm);
 
-        board.getChildren().add(head);
-		board.getChildren().add(spine);
-        board.getChildren().add(leftArm);
-        board.getChildren().add(rightArm);
-        board.getChildren().add(leftLeg);
-        board.getChildren().add(rightLeg);
-        board.getChildren().add(frameBase);
-		board.getChildren().add(framePole);
-		board.getChildren().add(frameLine);
-		board.getChildren().add(rope);
+        Shape leftLeg = new Line(0,0,70,0);
+        leftLeg.setRotate(-60);
+        leftLeg.setTranslateY(40);
+        leftLeg.setTranslateX(-23);
+        leftLeg.setStrokeWidth(6);
+        leftLeg.setVisible(false);
+        body.add(leftLeg);
+
+        Shape rightLeg = new Line(0,0,70,0);
+        rightLeg.setRotate(60);
+        rightLeg.setTranslateY(33);
+        rightLeg.setTranslateX(23);
+        rightLeg.setStrokeWidth(6);
+        rightLeg.setVisible(false);
+        body.add(rightLeg);
+
+        // adding all components to board
+        board.getChildren().addAll(
+                frameBase, framePole, frameLine, rope,
+                head, spine, leftArm, rightArm, leftLeg, rightLeg
+        );
 	}
 
+	private void hangmanVisible(int moves) {
+
+	    // 1st wrong answer: gallows will be visible
+        // 2nd to 7th (game over): hangman parts will be seen one-by-one
+        // game over: hangman body turns red
+
+	    switch (moves) {
+            case 1:
+                for (Shape gallow : gallows) {
+                    gallow.setVisible(true);
+                }
+                break;
+            case 2: case 3: case 4: case 5: case 6:
+                body.get(moves-2).setVisible(true);
+                break;
+            case 7:
+                body.get(0).setFill(Color.CRIMSON);
+                for (Shape shape : body) {
+                    shape.setStroke(Color.CRIMSON);
+                }
+                body.get(5).setVisible(true);
+                break;
+            default:
+                break;
+        }
+    }
 		
 	@FXML 
 	private void newHangman() {
-		game.reset();
+		System.out.println("in newHangman");
+	    game.reset();
+
+	    // re-color hangman back to all black
+        body.get(0).setFill(Color.BLACK);
+        for (Shape shape : body) {
+            shape.setStroke(Color.BLACK);
+        }
+
+	    // re-hides the hangman drawings
+        for (Shape gallow : gallows) {
+            gallow.setVisible(false);
+        }
+        for (Shape body : body) {
+            body.setVisible(false);
+        }
 	}
 
 	@FXML
 	private void hint()
 	{
 		game.setHint();
+
+        // will also draw hangman after every hint
+        hangmanVisible(game.getMoves());
+
 	}
 
 	@FXML

@@ -83,7 +83,7 @@ public class Game {
 
 		});
 
-		words=createWordBank();
+		words = createWordBank();
 		reset();
 	}
 
@@ -151,9 +151,9 @@ public class Game {
     public StringProperty getHint(){return Hint;}
 
 
-	private String [] createWordBank ()
+	private String[] createWordBank()
 	{
-		int ctr =0;
+		int ctr = 0;
 		String[] wordsReadFromFile;
 
 		try
@@ -164,7 +164,7 @@ public class Game {
 				ctr++;
 				scanner.next();
 			}
-			wordsReadFromFile= new String[ctr];
+			wordsReadFromFile = new String[ctr];
 
 			Scanner sc = new Scanner(new File("words.txt"));
 			for (int i = 0; i <= ctr; i++)
@@ -239,11 +239,14 @@ public class Game {
 		log("\nin makeMove: " + letter);
 		if(gameOver)
 		    return;
+
 		letter = letter.toLowerCase();
+
 		if(!letter.matches("[A-Za-z]"))
 		    return;
 		if(tmpAnswer.contains(letter) || missedLetters.contains(letter))
 		    return;
+
 		Hint.set("");
 		index = update(letter);
 		int temp;
@@ -300,6 +303,7 @@ public class Game {
 			return GameStatus.GAME_OVER;
 		}
 		else {
+		    log("checkForWinner = null");
 			return null;
 		}
 	}
@@ -329,4 +333,8 @@ public class Game {
         movesLeft.set("You have " + (numOfTries() - moves + " bad guesses left."));
         Hint.set("Hint: " + hintLetter);
 	}
+
+	public int getMoves() {
+	    return moves;
+    }
 }
