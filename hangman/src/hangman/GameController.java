@@ -12,7 +12,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
 
 public class GameController {
@@ -89,54 +91,35 @@ public class GameController {
 		*/
 	}
 
-	private static final int SPINE_START_X = 100;
-	private static final int SPINE_START_Y = 20;
-	private static final int SPINE_END_X = SPINE_START_X;
-	private static final int SPINE_END_Y = SPINE_START_Y + 50;
-
 	private void drawHangman() {
 
 		Circle head = new Circle(15);
-		head.setTranslateX(SPINE_START_X - 100);
-		head.setTranslateY(SPINE_START_Y - 90);
+		head.setTranslateX(0);
+		head.setTranslateY(-100);
 
-		Line spine = new Line();
-		spine.setStartX(SPINE_START_X);
-		spine.setStartY(SPINE_START_Y);
-		spine.setEndX(SPINE_END_X);
-		spine.setEndY(SPINE_END_Y);
+		Line spine = new Line(0,0,75,0);
+		spine.setRotate(90);
+		spine.setTranslateY(-65);
 
-		Line leftArm = new Line();
-		leftArm.setStartX(SPINE_START_X);
-		leftArm.setStartY(SPINE_START_Y);
-		leftArm.setEndX(SPINE_START_X + 40);
-		leftArm.setEndY(SPINE_START_Y + 10);
-		leftArm.setTranslateX(SPINE_START_X - 120);
-		leftArm.setTranslateY(SPINE_START_Y - 90);
+		Line leftArm = new Line(0,0,50,0);
+		leftArm.setRotate(30);
+		leftArm.setTranslateY(-100);
+		leftArm.setTranslateX(-23);
 
-		Line rightArm = new Line();
-		rightArm.setStartX(SPINE_START_X);
-		rightArm.setStartY(SPINE_START_Y);
-		rightArm.setEndX(SPINE_START_X - 40);
-		rightArm.setEndY(SPINE_START_Y + 10);
-        rightArm.setTranslateX(SPINE_START_X - 80);
-        rightArm.setTranslateY(SPINE_START_Y - 101);
+		Line rightArm = new Line(0,0,50,0);
+		rightArm.setRotate(-30);
+		rightArm.setTranslateY(-100);
+		rightArm.setTranslateX(23);
 
-		Line leftLeg = new Line();
-		leftLeg.setStartX(SPINE_END_X);
-		leftLeg.setStartY(SPINE_END_Y);
-		leftLeg.setEndX(SPINE_END_X + 25);
-		leftLeg.setEndY(SPINE_END_Y + 50);
-        leftLeg.setTranslateX(SPINE_START_X - 87);
-        leftLeg.setTranslateY(SPINE_START_Y - 75);
+		Line leftLeg = new Line(0,0,70,0);
+		leftLeg.setRotate(60);
+		leftLeg.setTranslateY(1);
+		leftLeg.setTranslateX(17);
 
-		Line rightLeg = new Line();
-		rightLeg.setStartX(SPINE_END_X);
-		rightLeg.setStartY(SPINE_END_Y);
-		rightLeg.setEndX(SPINE_END_X - 25);
-		rightLeg.setEndY(SPINE_END_Y + 50);
-        rightLeg.setTranslateX(SPINE_START_X - 112);
-        rightLeg.setTranslateY(SPINE_START_Y - 128);
+		Line rightLeg = new Line(0,0,70,0);
+		rightLeg.setRotate(-60);
+		rightLeg.setTranslateY(0);
+		rightLeg.setTranslateX(-17);
 
         Line frameBase = new Line();
         frameBase.setStartX(0);
@@ -145,17 +128,42 @@ public class GameController {
         frameBase.setEndY(0);
 		frameBase.setTranslateX(-160);
 		frameBase.setTranslateY(80);
+		frameBase.setTranslateY(180);
 		frameBase.setStrokeWidth(5);
 
+		Line framePole = new Line(0,0,350,0);
+		framePole.setStrokeWidth(5);
+		framePole.setRotate(90);
+		framePole.setTranslateY(-100);
+		framePole.setTranslateY(0);
+		framePole.setTranslateX(-160);
 
-		board.getChildren().add(spine);
+		Line frameLine = new Line(0,0,160,0);
+		frameLine.setStrokeWidth(5);
+		frameLine.setTranslateY(-280);
+		frameLine.setTranslateY(-180);
+		frameLine.setTranslateX(-80);
+
+		Line rope = new Line(0,0,28,0);
+		rope.setStrokeWidth(3);
+		rope.setRotate(90);
+		rope.setTranslateY(-263);
+		rope.setTranslateY(-167);
+		rope.setStroke(Color.BROWN);
+
+
         board.getChildren().add(head);
+		board.getChildren().add(spine);
         board.getChildren().add(leftArm);
         board.getChildren().add(rightArm);
         board.getChildren().add(leftLeg);
         board.getChildren().add(rightLeg);
         board.getChildren().add(frameBase);
+		board.getChildren().add(framePole);
+		board.getChildren().add(frameLine);
+		board.getChildren().add(rope);
 	}
+
 		
 	@FXML 
 	private void newHangman() {
